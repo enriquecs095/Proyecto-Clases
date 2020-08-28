@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+body
+{
+    background-color: #0c2f57;
+    color: white;
+}
+
+h1, h2
+{
+    color: aliceblue;
+}
+
+.well {
+    background-color: #2f5273;
+    padding: 15px;
+    color: aliceblue;
+    margin: 10px;
+}
+
+.hoverwell:hover
+{
+    background-color: #406a92;
+    cursor: pointer;
+}

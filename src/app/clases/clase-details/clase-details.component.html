@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <img [src]="clase?.imageUrl" />
+        <div class="col-md-11">
+            <h2>{{clase?.nombre}} </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div><strong>Date:</strong> {{clase?.horario}}</div>
+        </div>
+        <div class="col-md-6">
+            <div><strong>Clase #:</strong> {{clase?.id}}</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div><strong>Aula:</strong> {{clase?.ubicacion?.aula}}</div>
+        </div>
+        <div class="col-md-6">
+            <div><strong>Campus:</strong> {{clase?.ubicacion?.campus}}</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-2">
+            <h3 style="margin: 0;">Secciones</h3>
+        </div>
+        <div class="col-md-2">
+            <a class="a-button">Agregar Seccion</a>
+        </div>
+    </div>
+    <secccion-list [secciones]="clases?.secciones"></secccion-list>
+
+</div>

@@ -1,0 +1,41 @@
+<h1>Nueva Clase</h1>
+<hr>
+<div class="col-md-6">
+ 
+  <form #newClaseForm="ngForm" (ngSubmit)="saveClase(newClaseForm.value)" autocomplete="off" novalidate>
+ 
+    <div class="form-group" >
+      <label for="nombre">Nombre de la Clase:</label>
+      <em *ngIf="newClaseForm.controls.nombre?.invalid && (newClaseForm.controls.nombre?.touched)">Requerido</em>
+      <input [(ngModel)]="newClase.nombre" name="nombre" required id="nombre" 
+      type="text" class="form-control" placeholder="nombre de la clase..." />
+    </div>
+ 
+    <div class="form-group" [ngClass]="{'error': newClaseForm.controls.horario?.invalid && newClaseForm.controls.horario?.touched}">
+      <label for="horario">Hora de la clase:</label>
+      <em *ngIf="newClaseForm.controls.horario?.invalid && (newClaseForm.controls.horario?.touched)">Requerido</em>
+      <input [(ngModel)]="newClase.horario" name="horario" required id="horario" type="text" class="form-control" placeholder="hora de inicio..." />
+    </div>
+ 
+    <div class="row" ngModelGroup="ubicacion">
+        <div class="col-md-6">
+            <input [(ngModel)]="newClase.aula" name="aula" id="aula" type="text" class="form-control" placeholder="Aula..." />
+        </div>
+        <div class="col-md-6" >
+            <input [(ngModel)]="newClase.campus" name="campus" id="campus" type="text" class="form-control" placeholder="campus..." />
+        </div>
+    </div>
+ 
+    <div class="form-group" [ngClass]="{'error': newClaseForm.controls.imageUrl?.invalid && newClaseForm.controls.imageUrl?.touched}">
+      <label for="imageUrl">Image:</label>
+      <em *ngIf="newClaseForm.controls.imageUrl?.invalid && newClaseForm.controls.imageUrl?.touched && newClaseForm.controls.imageUrl?.errors.required">Requerido</em>
+      <em *ngIf="newClaseForm.controls.imageUrl?.invalid && newClaseForm.controls.imageUrl?.touched  && newClaseForm.controls.imageUrl?.errors.pattern">Debe ser una png or jpg url</em>
+      <input [(ngModel)]="newClase.imageUrl" name="imageUrl" required pattern=".*\/.*.(png|jpg)" id="imageUrl" type="text" class="form-control" placeholder="URL de la imagen..." />
+      <img [src]="newClaseForm.controls.imageUrl.value" *ngIf="newClaseForm.controls.imageUrl?.valid" />
+    </div>
+ 
+    <button type="submit" [disabled]="newClaseForm.invalid" class="btn btn-primary">Guardar</button>
+    <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
+ 
+  </form>
+</div>
